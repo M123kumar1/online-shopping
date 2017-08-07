@@ -1,4 +1,4 @@
-package com.mk.controller;
+package com.mk.onlineshopping.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mk.dao.CategoryDAO;
-import com.mk.dto.Category;
+import com.mk.shoppingbackend.dao.CategoryDAO;
+import com.mk.shoppingbackend.dto.Category;
 
 @Controller
 public class PageController {
@@ -60,7 +60,7 @@ public class PageController {
 	@RequestMapping(value = "/show/category/{id}/products")
 	public ModelAndView showCategoryProducts(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView("page");
-		
+
 		// categoryDAO to fetch a single category
 		Category category = null;
 		category = categoryDAO.get(id);
@@ -68,9 +68,9 @@ public class PageController {
 
 		// parsing the list of categories
 		mv.addObject("categories", categoryDAO.list());
-		
-		//parsing the single category obj
-		mv.addObject("category",category);
+
+		// parsing the single category obj
+		mv.addObject("category", category);
 
 		mv.addObject("userClickCategoryProducts", true);
 		return mv;
