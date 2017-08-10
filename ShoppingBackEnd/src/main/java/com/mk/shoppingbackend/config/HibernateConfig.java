@@ -19,12 +19,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class HibernateConfig {
 
-	private final static String DATABASE_URL = "jdbc:h2:~/test";
+	/*private final static String DATABASE_URL = "jdbc:h2:~/test";
 	private final static String DATABASE_DRIVER = "org.h2.Driver";
 	private final static String DATABASE_DIALECT = "org.hibernate.dialect.H2Dialect";
 	private final static String DATABASE_USERNAME = "sa";
 	private final static String DATABASE_PASSWORD = "";
-
+*/
+	
 	/*
 	 * private final static String DATABASE_URL =
 	 * "jdbc:oracle:thin:@localhost:1521:xe"; private final static String
@@ -33,6 +34,13 @@ public class HibernateConfig {
 	 * private final static String DATABASE_USERNAME = "mydatabase"; private
 	 * final static String DATABASE_PASSWORD = "mkumar9798";
 	 */
+	
+	private final static String DATABASE_URL = "jdbc:mysql:///onlineshopping";
+	private final static String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
+	private final static String DATABASE_DIALECT = "org.hibernate.dialect.MySQLDialect";
+	private final static String DATABASE_USERNAME = "root";
+	private final static String DATABASE_PASSWORD = "root";
+
 	@Bean
 	public DataSource getDatasource() {
 		BasicDataSource dataSource = new BasicDataSource();

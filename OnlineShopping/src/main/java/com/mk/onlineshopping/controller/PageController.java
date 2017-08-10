@@ -18,10 +18,8 @@ public class PageController {
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "home");
-
-		// parsing the list of categories
 		mv.addObject("categories", categoryDAO.list());
-
+		
 		mv.addObject("userClickHome", true);
 		return mv;
 	}

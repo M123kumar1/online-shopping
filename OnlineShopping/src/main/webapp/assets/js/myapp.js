@@ -1,14 +1,20 @@
-$(function(){
+$(function() {
 	// solving the active menu prblm
-	switch(menu){
-		case 'About Us':
-			$('#about').addClass('active');
+	switch (menu) {
+	case 'About Us':
+		$('#about').addClass('active');
+		break;
+	case 'Contact Us':
+		$('#contact').addClass('active');
+		break;
+	case 'All Products':
+		$('#listProducts').addClass('active');
+		break;
+	default:
+		if (menu == 'home')
 			break;
-		case 'Contact Us':
-			$('#contact').addClass('active');
-			break;
-		default:
-			$('#home').addClass('active');
-			break;
+		$('#listProducts').addClass('active');
+		$('#a_'+menu).addClass('active');
+		break;
 	}
 });
