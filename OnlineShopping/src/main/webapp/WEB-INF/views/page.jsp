@@ -21,10 +21,18 @@
 
 <script>
 	window.menu = '${title}';
+	window.contextRoot='${contextRoot}';
 </script>
+<!-- Bootstrap Core CSS   Order is important-->
+<link href="${css}/bootstrap.min.css" rel="stylesheet">
 
-<!-- Bootstrap Core CSS -->
+
+<!-- Bootstrap Readable Theme -->
 <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+
+<!-- Bootstrap DataTables -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
+
 
 <!-- Custom CSS -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -54,7 +62,7 @@
 			<c:if test="${userClickAbout==true}">
 				<%@include file="about.jsp"%>
 			</c:if>
-			
+
 			<!-- 	load only when user cllcks All products -->
 			<c:if
 				test="${userClickAllProducts==true or userClickCategoryProducts==true}">
@@ -66,7 +74,7 @@
 				<%@include file="contact.jsp"%>
 			</c:if>
 
-			
+
 		</div>
 		<!-- /.container -->
 
@@ -83,6 +91,12 @@
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="${js}/bootstrap.min.js"></script>
+
+	<!-- 	DataTable plugins -->
+	<script src="${js}/jquery.dataTables.js"></script>
+
+<!-- 	DataTable BootStrap Script order is important-->
+	<script src="${js}/dataTables.bootstrap.js"></script>
 
 	<!-- 	self coded java script -->
 	<script src="${js}/myapp.js"></script>
