@@ -21,7 +21,7 @@
 
 <script>
 	window.menu = '${title}';
-	window.contextRoot='${contextRoot}';
+	window.contextRoot = '${contextRoot}';
 </script>
 <!-- Bootstrap Core CSS   Order is important-->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
@@ -73,10 +73,15 @@
 			<c:if test="${userClickContact==true}">
 				<%@include file="contact.jsp"%>
 			</c:if>
-			
+
 			<!-- 	load only when user clicks show product -->
 			<c:if test="${userClickShowProduct==true}">
 				<%@include file="singleProduct.jsp"%>
+			</c:if>
+
+			<!-- 	load only when user clicks manage product -->
+			<c:if test="${userClickManageProducts==true}">
+				<%@include file="manageProducts.jsp"%>
 			</c:if>
 
 
@@ -100,8 +105,12 @@
 	<!-- 	DataTable plugins -->
 	<script src="${js}/jquery.dataTables.js"></script>
 
-<!-- 	DataTable BootStrap Script order is important-->
+	<!-- 	DataTable BootStrap Script order is important-->
 	<script src="${js}/dataTables.bootstrap.js"></script>
+
+	<!-- 	BootBox-->
+	<script src="${js}/bootbox.min.js"></script>
+
 
 	<!-- 	self coded java script -->
 	<script src="${js}/myapp.js"></script>
