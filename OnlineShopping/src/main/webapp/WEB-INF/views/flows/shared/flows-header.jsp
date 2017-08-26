@@ -1,3 +1,4 @@
+<%@page import="com.fasterxml.jackson.annotation.JsonInclude.Include"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -50,74 +51,7 @@
 	<div class="wrapper">
 
 		<!-- Navigation -->
-
-		<%@include file="./shared/navbar.jsp"%>
+			<%@include file="../shared/flows-navbar.jsp" %>
+			
 		<!-- Page Content -->
 		<div class="content">
-			<c:if test="${userClickHome==true}">
-				<%@include file="home.jsp"%>
-			</c:if>
-
-			<!-- 	load only when user clicks about us -->
-			<c:if test="${userClickAbout==true}">
-				<%@include file="about.jsp"%>
-			</c:if>
-
-			<!-- 	load only when user clicks All products -->
-			<c:if
-				test="${userClickAllProducts==true or userClickCategoryProducts==true}">
-				<%@include file="listProducts.jsp"%>
-			</c:if>
-
-			<!-- 	load only when user clicks contact us -->
-			<c:if test="${userClickContact==true}">
-				<%@include file="contact.jsp"%>
-			</c:if>
-
-			<!-- 	load only when user clicks show product -->
-			<c:if test="${userClickShowProduct==true}">
-				<%@include file="singleProduct.jsp"%>
-			</c:if>
-
-			<!-- 	load only when user clicks manage product -->
-			<c:if test="${userClickManageProducts==true}">
-				<%@include file="manageProducts.jsp"%>
-			</c:if>
-
-
-		</div>
-		<!-- /.container -->
-
-
-
-		<!-- Footer -->
-		<%@include file="./shared/footer.jsp"%>
-
-	</div>
-	<!-- /.container -->
-
-	<!-- jQuery -->
-	<script src="${js}/jquery.js"></script>
-
-	<!-- jQuery validation -->
-	<script src="${js}/jquery.validate.js"></script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="${js}/bootstrap.min.js"></script>
-
-	<!-- 	DataTable plugins -->
-	<script src="${js}/jquery.dataTables.js"></script>
-
-	<!-- 	DataTable BootStrap Script order is important-->
-	<script src="${js}/dataTables.bootstrap.js"></script>
-
-	<!-- 	BootBox-->
-	<script src="${js}/bootbox.min.js"></script>
-
-
-	<!-- 	self coded java script -->
-	<script src="${js}/myapp.js"></script>
-	</div>
-</body>
-
-</html>
