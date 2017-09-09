@@ -123,8 +123,9 @@
 		<hr/>
 	</div>
 	<div class="col-xs-12">
-		<div style="overflow:auto">
-			<!--Products table for admin -->
+		<div class="container-fluid">
+			<div class="table-resonsive">
+				<!--Products table for admin -->
 			<table id="adminProductsTable" class="table table-striped table-bordered">
 				<thead>
 					<tr>
@@ -152,6 +153,7 @@
 					</tr>
 				</tfoot>
 			</table>
+			</div>
 		</div>
 	</div>
 </div>

@@ -41,17 +41,6 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean updateCart(Cart cart) {
-		try {
-			sessionFactory.getCurrentSession().update(cart);
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
-
-	@Override
 	public User getByEmail(String email) {
 		String selectQuery ="FROM User WHERE email=:email";
 		try{
@@ -61,7 +50,7 @@ public class UserDAOImpl implements UserDAO {
 					.getSingleResult();
 		}
 		catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 			return null;
 		}
 		

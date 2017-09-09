@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 public class Address implements Serializable {
 	/**
@@ -19,9 +21,19 @@ public class Address implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column(name="user_id")
+	private int userId;
 	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
 	/*----------*/
-	@ManyToOne
+	/*@ManyToOne
 	private User user;
 	
 	public User getUser() {
@@ -30,19 +42,29 @@ public class Address implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
-	}
+	}*/
 
 	/*----------*/
+	@NotBlank(message="Please Enter Addreass Line One")
 	@Column(name = "address_line_one")
 	private String addressLineOne;
+	@NotBlank(message="Please Enter Addreass Line Two")
 	@Column(name = "address_line_two")
 	private String addressLineTwo;
+	@NotBlank(message="Please Enter City")
 	private String city;
+	@NotBlank(message="Please Enter State")
 	private String state;
+	@NotBlank(message="Please Enter Country")
 	private String country;
+	@NotBlank(message="Please Enter ostal Code")
 	@Column(name = "postal_code")
 	private String postalCode;
+	
+	@Column(name = "is_shipping")
 	private boolean shipping;
+	
+	@Column(name = "is_billing")
 	private boolean billing;
 
 	public int getId() {
@@ -119,7 +141,7 @@ public class Address implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", user=" + user + ", addressLineOne=" + addressLineOne + ", addressLineTwo="
+		return "Address [id=" + id + ", addressLineOne=" + addressLineOne + ", addressLineTwo="
 				+ addressLineTwo + ", city=" + city + ", state=" + state + ", country=" + country + ", postalCode="
 				+ postalCode + ", shipping=" + shipping + ", billing=" + billing + "]";
 	}

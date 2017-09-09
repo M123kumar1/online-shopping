@@ -34,7 +34,9 @@
 				</div>
 			</div>
 			<div class="col-xs-12">
-				<table id="productListTable"
+				<div class="container-fluid">
+					<div class="table-responsive">
+						<table id="productListTable"
 					class="table table-striped table-bordered">
 					<thead>
 						<tr>
@@ -59,6 +61,8 @@
 						</tr>
 					</tfoot>
 				</table>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

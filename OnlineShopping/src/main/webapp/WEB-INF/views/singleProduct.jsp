@@ -42,20 +42,26 @@
 					<h6>Qty. Available: ${product.quantity}</h6>
 				</c:otherwise>
 			</c:choose>
-
-			<c:choose>
-				<c:when test="${product.quantity < 1}">
-					<a href="javascript:void(0)"
-				class="btn btn-success disabled"><strike><span
-				class="glyphicon glyphicon-shopping-cart"></span>Add to cart</strike></a></c:when>
-				<c:otherwise>
-					<a href="${contexRoot}/cart/add/${product.id}/product"
-				class="btn btn-success"><span
-				class="glyphicon glyphicon-shopping-cart">Add to cart</span></a>
-				</c:otherwise>
-			</c:choose>
-
-			<a href="${contexRoot}/show/all/products" class="btn btn-primary">back</a>
+			
+			<security:authorize access="hasAuthority('USER')">
+				<c:choose>
+					<c:when test="${product.quantity < 1}">
+						<a href="javascript:void(0)"
+					class="btn btn-success disabled"><strike><span
+					class="glyphicon glyphicon-shopping-cart"></span>Add to cart</strike></a></c:when>
+					<c:otherwise>
+						<a href="${contextRoot}/cart/add/${product.id}/product"
+					class="btn btn-success"><span
+					class="glyphicon glyphicon-shopping-cart">Add to cart</span></a>
+					</c:otherwise>
+				</c:choose>
+			</security:authorize>
+			<security:authorize access="hasAuthority('ADMIN')">
+				<a href="${contextRoot}/manage/${product.id}/product"
+					class="btn btn-warning">
+					<span class="glyphicon glyphicon-pencil">Edit</span></a>
+			</security:authorize>
+			<a href="${contextRoot}/show/all/products" class="btn btn-primary">back</a>
 		</div>
 	</div>
 </div>

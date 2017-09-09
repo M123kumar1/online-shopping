@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "user_details")
@@ -22,17 +25,33 @@ public class User implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(name = "first_name")
+	@NotBlank(message="Please Enter First Name")
 	private String firstName;
 	@Column(name = "last_name")
+	@NotBlank(message="Please Enter last Name")
 	private String lastName;
-
+	@NotBlank(message="Please Enter Email")
 	private String email;
 	@Column(name = "contact_number")
+	@NotBlank(message="Please Enter Contact Number")
 	private String contactNumber;
 	private String role;
+	@NotBlank(message="Please Enter Password")
 	private String password;
 	private boolean enabled = true;
 	
+	//confirm password transient field
+	@Transient
+	private String confirmPassword;
+	
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+
 	//for bi-directional mapping
 	@OneToOne(mappedBy="user",cascade=CascadeType.ALL)
 	private Cart cart;
